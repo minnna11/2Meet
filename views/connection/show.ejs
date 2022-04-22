@@ -1,0 +1,25 @@
+<%- include('../partials/headers.ejs')%>
+<div class = "content">
+    <h1><%=connection.title%></h1>
+    <div class="content-connection">
+        <img src='<%=connection.image_url%>' alt="logo">
+        <div class="content-details">
+            <p>Hosted by <%=connection.author.firstName + ' ' + connection.author.lastName%></p>
+            <p><%=connection.when%></p>
+            <p><%=connection.start_time%>-<%=connection.end_time%></p>
+            <p><%=connection.location%></p>
+       
+            <!-- <div id="connection"><%=connection.content%></div> -->
+        
+            </div>
+            <%if(user == connection.author._id) {%>
+            <form>
+                <button type="submit" formmethod="GET" formaction="/connections/<%=connection.id%>/edit">Edit</button>
+                <button type="submit" formmethod="POST" formaction="/connections/<%=connection.id%>?_method=DELETE">Delete</button>
+            </form>
+            <%}%>
+        </div>
+    <h2>Details</h2>
+    <p><%=connection.content%></p>
+</div>
+<%- include('../partials/footer.ejs')%>

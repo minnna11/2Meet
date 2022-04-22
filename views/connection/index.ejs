@@ -1,0 +1,48 @@
+<%- include('../partials/headers.ejs')%>
+<div class = "content">
+  
+    <%let array = []%>
+    <%let arrayConnection = []%>
+    <%if(connections.length){%>
+        <h1>Select a connection to Read/Meet</h1>
+   
+        <%connections.forEach(connection=>{ %>
+       
+            <%if(!array.includes(connection.topic.toUpperCase())){
+                array.push(connection.topic.toUpperCase())
+            }%>
+    
+            <% arrayConnection.push(connection)%>
+       <% });
+ 
+    }else{ %>
+        <p>There are no connections to display.</p>
+    <%}%>
+<!----------------------------- after -->
+
+<%for (const topic of array) {%>
+    <!-- <p><%= topic.id%></p> -->
+    <h2><%=topic%></h2>
+    <%for (const element of arrayConnection) {%>
+       <% if(topic.match(element.topic.toUpperCase())){ %>
+            <a href='/connections/<%=element.id%>'><p><%= element.title%></p></a>
+       <% }%>
+       
+        <%}%>
+   
+  <%}%>
+<!-- <%if(connections.length){%>
+    <h1>Select a connection to read</h1>
+   
+    <%connections.forEach(connection=>{ %>
+        <% array.push(connection.topic)%>
+        <h1>TEST <%=array[0]%></h1>
+        <h2><%=connection.topic%></h2>
+        <a href='/connections/<%=connection.id%>'><p><%= connection.title%></p></a>
+   <% });
+}else{ %>
+    <p>There are no connections to display.</p>
+<%}%> -->
+   
+</div>
+<%- include('../partials/footer.ejs')%>

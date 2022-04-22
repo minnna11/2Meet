@@ -1,0 +1,45 @@
+<%- include('../partials/headers.ejs')%>
+<div class = "content">
+    <form action = '/connections' method = 'POST'>
+        <table>
+            <tr>
+                <td><label for="topic">Topic</label></td>
+                <td><input type="text" id="topic" name="topic" class = "fixed-width" required></td>
+            </tr>
+            <tr>
+                <td><label for="title">Title</label></td>
+                <td><input type="text" id="title" name="title" class = "fixed-width" required></td>
+            </tr>
+            <tr>
+                <td class = "align-top"><label for="content">Details</label></td>
+                <td><textarea rows="5" id="content" name="content" class = "fixed-width" required></textarea></td>
+            </tr>
+            <tr>
+                <td><label for="location">Where</label></td>
+                <td><input type="text" id="location" name="location" class = "fixed-width" required></td>
+            </tr>
+            <tr>
+                <td><label for="when">When</label></td>
+                <td><input type="date" id="when" name="when" class = "fixed-width"  value=""
+                    min="2018-01-01" max="2030-12-31" required></td>
+            </tr>
+            <tr>
+                <td><label for="start_time">Start</label></td>
+                <td><input type="time" id="start_time" name="start_time" class = "fixed-width" required></td>
+            </tr>
+            <tr>
+                <td><label for="end_time">End</label></td>
+                <td><input type="time" id="end_time" name="end_time" class = "fixed-width" required></td>
+            </tr>
+            <tr>
+                <td><label for="image_url">Image Url</label></td>
+                <td><input type="text" id="image_url" name="image_url" class = "fixed-width" required></td>
+            </tr>
+            <tr>
+                <td colspan="2" class = "align-right"><button>Submit</button></td>
+            </tr>
+        </table>        
+    </form>
+
+    </div>
+<%- include('../partials/footer.ejs')%>

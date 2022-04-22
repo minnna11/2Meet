@@ -1,0 +1,29 @@
+<%- include('../partials/headers.ejs')%>
+<div class = "profile">
+    <h2><%=user.firstName%>'s Connections</h2>
+    <%if(connections.length) {%>
+        <p>You have created the following connections</p>
+        <table class="profile-table">
+            <tr>
+                <th>Connection</th>
+                <th>Category</th>
+                <th>Actions</th>
+            </tr>
+      
+            <tr>
+        <%connections.forEach(connection => {%>
+           
+            <td><a href = '/connections/<%= connection.id%>'><p><%=connection.title%></p></a></td>
+            <td><p><%=connection.topic.substring(0,1).toUpperCase()+connection.topic.substring(1)%></p></td>
+            <td><form>
+                <button type="submit" formmethod="GET" formaction="/connections/<%=connection.id%>/edit">Update</button>
+                <button type="submit" formmethod="POST" formaction="/connections/<%=connection.id%>?_method=DELETE">Delete</button>
+            </form></td>
+            </tr>
+        <%});%>
+        </table>
+    <%} else {%>
+        <p>You have not created any connections</p>
+    <%}%>
+    </div>
+    <%- include('../partials/footer.ejs')%>
